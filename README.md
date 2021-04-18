@@ -28,3 +28,7 @@
 - ANN and BNN model architecture development in [file](regression_models.ipynb)
 - 3D estimated area visualization [file](3D_map_generation.ipynb) and [file](3D_map_generation.py)
 - **Optimize model for creating suitablt results.**
+
+# Notes
+- Check **model architecture** in  [file](regression_models.ipynb) before making prediction.
+- Check elevation high for TB data points.
