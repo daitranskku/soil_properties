@@ -20,19 +20,18 @@ from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 
 X_TEST_START = 549500
 X_TEST_STOP = 551500
-X_STEP = 300
+X_STEP = 50
 
 Y_TEST_START = 213550
 Y_TEST_STOP = 213950
-Y_STEP = 300
+Y_STEP = 50
 
 ELEVATION_START = -20
 ELEVATION_STOP = 44
 ELEVATION_STEP = 10
 
-model_type = 'probabilistic'
-# model_type = 'deterministic'
-
+# model_type = 'probabilistic'
+model_type = 'deterministic'
 
 DATA_DIR = '/home/daitran/Desktop/git/soil_properties/data'
 
@@ -41,8 +40,6 @@ tb_data_path = os.path.join(DATA_DIR, 'TB_blue_data.csv')
 
 ntb_data= pd.read_csv(ntb_data_path)
 tb_data = pd.read_csv(tb_data_path)
-
-
 
 assign_num_list = {'topsoil layer': 0,
                       'weathered rock': 1,
@@ -54,7 +51,6 @@ assign_num_list = {'topsoil layer': 0,
                       'sedimentary layer': 7,
                       'reclaimed layer': 8,
                       'uncertain': 9}
-
 ntb_names = ntb_data['Soi properties (main)']
 tb_names = tb_data['Soi properties (main)']
 
@@ -76,8 +72,11 @@ normalizer = preprocessing.MinMaxScaler()
 normalized_X_train_ntb = normalizer.fit_transform(X_train_ntb)
 normalized_X_train_tb = normalizer.fit_transform(X_train_tb)
 
+# CHECK MODEL ARCHITECTURE FROM regression_models.ipynb
 def create_model(dim):
     model = Sequential([
+        Dense(10, activation = 'relu', kernel_initializer='he_normal', input_dim = dim),
+        Dense(10, activation = 'relu', kernel_initializer='he_normal', input_dim = dim),
         Dense(10, activation = 'relu', kernel_initializer='he_normal', input_dim = dim),
         Dense(1, kernel_initializer='normal', activation='linear')
     ])
@@ -126,7 +125,8 @@ def nll(y_true, y_pred):
     return -y_pred.log_prob(y_true)
 
 model_prob.compile(loss=nll, optimizer=tf.optimizers.Adam(learning_rate=0.001))
-model_prob.summary()
+# model_prob.summary()
+
 
 
 def get_model_best_epoch(model, model_type):
@@ -138,13 +138,13 @@ def get_model_best_epoch(model, model_type):
     
     return model
 
+
 if model_type == 'deterministic':
     print('===== Processing in deterministic type =====')
     model = get_model_best_epoch(model = create_model(dim=3), model_type='deterministic')
 else:
     print('===== Processing in probabilistic type =====')
     model = get_model_best_epoch(model = model_prob, model_type='probabilistic')
-
 
 def test_area_generate():
     test_area = np.empty((0,3), int)
@@ -161,9 +161,11 @@ def test_area_generate():
 
 
 X_test = test_area_generate()
+
+
 normalized_X_test = normalizer.fit_transform(X_test)
 
-def estimate_soil_properties(test_area):
+def estimate_soil_properties(model, test_area):
     results = []
     for i in tqdm(range(len(test_area))):
         test_location = normalized_X_test[i]
@@ -173,7 +175,10 @@ def estimate_soil_properties(test_area):
         results.append(int(result)-1)
     return np.array(results)
 
-y_estimate = estimate_soil_properties(test_area = normalized_X_test)
+y_estimate = estimate_soil_properties(model = model, test_area = normalized_X_test)
+
+
+
 y_estimate[y_estimate < 0] = 9
 y_estimate[y_estimate > 8] = 9
 
@@ -205,26 +210,35 @@ def plot_data(x, y, labels, colours):
           fancybox=True, shadow=True, ncol=5)
 
 
+
 labels = {}
 for k, v in assign_num_list.items():
     labels[v] = k
+
 
 label_colours = ['blue', 'green', 'red', 'cyan',
                  'magenta', 'yellow', 'black', 'brown', 
                  'pink','silver']
 
-
 plot_data(X_test, y_estimate, labels, label_colours)
 plt.show()
 
 
+model_type = 'probabilistic'
 
+if model_type == 'deterministic
+    print('===== Processing in deterministic type =====')
+    model = get_model_best_epoch(model = create_model(dim=3), model_type='deterministic')
+else:
+    print('===== Processing in probabilistic type =====')
+    model = get_model_best_epoch(model = model_prob, model_type='probabilistic')
 
+y_estimate = estimate_soil_properties(model = model, test_area = normalized_X_test)
+y_estimate[y_estimate < 0] = 9
+y_estimate[y_estimate > 8] = 9
 
-
-
-
-
+plot_data(X_test, y_estimate, labels, label_colours)
+plt.show()
 
 
 
