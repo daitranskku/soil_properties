@@ -1,27 +1,32 @@
 # Soil Properties Estimation
-**NTB - Black data point (92 points)**
+## **NTB - Black data point (92 points)**
 ![image](figures/ntb.png)
-**Sample test area using trained model from NTB data**
+## **Sample test area using trained model from NTB data**
 
-`X_TEST_START = 549500`
+### P1-P2-P3-P4 sample region 
 
-`X_TEST_STOP = 551500`
+![image](figures/test_area.png)
 
-`X_STEP = 50`
 
-`Y_TEST_START = 213550`
+`X_TEST_START = 549648`
 
-`Y_TEST_STOP = 213950`
+`X_TEST_STOP = 549751`
 
-`Y_STEP = 50`
+`X_STEP = 10`
 
-`ELEVATION_START = -20`
+`Y_TEST_START = 213758`
 
-`ELEVATION_STOP = 44`
+`Y_TEST_STOP = 213833`
 
-`ELEVATION_STEP = 10`
+`Y_STEP = 10`
 
-**Soil type assumption**
+`ELEVATION_START = 80`
+
+`ELEVATION_STOP = 145`
+
+`ELEVATION_STEP = 5`
+
+### **Soil type assumption**
 
 Soil type number. From down to bottom.
 
@@ -37,21 +42,22 @@ Soil type number. From down to bottom.
                     ` 'hard rock': 0,`
                  ` }`
                  
- **Type color assumption**
+ ### **Type color assumption**
  
 `label_colours = ['black', 'brown', 'red', 'magenta',`
                 `'pink', 'yellow', 'green',`
                 `'blue','cyan','silver']`
-
+                
+## **Predicted results - 3D point grid**
 
 ![image](figures/estimated.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
-**X-X Cross Section**
+### **X-X Cross Section**
 ![image](figures/cross_section_X.png)
 
-**Y-Y Cross Section**
+### **Y-Y Cross Section**
 ![image](figures/cross_section_Y.png)
 
 
