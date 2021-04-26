@@ -3,14 +3,14 @@
 ![image](figures/ntb.png)
 ## **Sample test area using trained model from NTB data**
 
-### P1-P2-P3-P4 sample region 
+### P1-P2-P5-P6 all region 
 
 ![image](figures/test_area.png)
 
 
 `X_TEST_START = 549648`
 
-`X_TEST_STOP = 549751`
+`X_TEST_STOP = 550977`
 
 `X_STEP = 10`
 
