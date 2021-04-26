@@ -48,8 +48,11 @@ Soil type number. From down to bottom.
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
-![image](figures/cross_section.png)
+**X-X Cross Section**
+![image](figures/cross_section_X.png)
 
+**Y-Y Cross Section**
+![image](figures/cross_section_Y.png)
 
 
 # Tutorial
