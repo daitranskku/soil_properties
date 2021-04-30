@@ -68,3 +68,8 @@ Soil type number. From down to bottom.
 
 # Notes
 - Check **model architecture** in [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) before making prediction.
+
+# Tasks
+1 - Predict all region
+2 - < 0=>0; >8 => 8
+3 - Run TB, NTB and NTB + TB
