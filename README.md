@@ -1,7 +1,7 @@
 # Soil Properties Estimation
-## **NTB - Black data point (92 points)**
-![image](figures/ntb.png)
-## **Sample test area using trained model from NTB data**
+## **NTB-TB data points **
+![image](figures/ntb-tb.png)
+## **Sample test area using trained model from NTB-TB data**
 
 ### P1-P2-P5-P6 all region 
 
@@ -22,7 +22,7 @@
 
 `ELEVATION_START = 80`
 
-`ELEVATION_STOP = 145`
+`ELEVATION_STOP = 130`
 
 `ELEVATION_STEP = 5`
 
@@ -30,35 +30,34 @@
 
 Soil type number. From down to bottom.
 
-`assign_num_list = {'uncertain': 9,`
-                    `'topsoil layer': 8,`
-                    `'reclaimed layer': 7,`
-                    `'sedimentary layer': 6,`
-                    `'colluvial layer': 5,`
-                   ` 'weathered soil': 4,`
-                   ` 'weathered rock': 3,`
+`assign_num_list = {`
+                    `'topsoil layer': 7,`
+                    `'reclaimed layer': 6,`
+                    `'sedimentary layer': 5,`
+                    `'weathered soil': 4,`
+                    `'weathered rock': 3,`
                     `'soft rock': 2,`
-                   ` 'moderate rock': 1,`
-                    ` 'hard rock': 0,`
-                 ` }`
+                    `'moderate rock': 1,`
+                     `'hard rock': 0,`
+                  `}`
                  
  ### **Type color assumption**
  
 `label_colours = ['black', 'brown', 'red', 'magenta',`
-                `'pink', 'yellow', 'green',`
+                `'pink', 'green',`
                 `'blue','cyan','silver']`
                 
 ## **Predicted results - 3D point grid**
 
-![image](figures/estimated.png)
+![image](figures/estimated_merged_ntb_tb.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
 ### **X-X Cross Section**
-![image](figures/cross_section_X.png)
+![image](figures/cross_section_X_ntb_tb.png)
 
 ### **Y-Y Cross Section**
-![image](figures/cross_section_Y.png)
+![image](figures/cross_section_Y_ntb_tb.png)
 
 
 # Tutorial
@@ -68,8 +67,3 @@ Soil type number. From down to bottom.
 
 # Notes
 - Check **model architecture** in [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) before making prediction.
-
-# Tasks
-1 - Predict all region
-2 - < 0=>0; >8 => 8
-3 - Run TB, NTB and NTB + TB
