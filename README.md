@@ -1,5 +1,5 @@
 # Soil Properties Estimation
-## **NTB-TB data points **
+## **NTB-TB data points**
 ![image](figures/ntb-tb.png)
 ## **Sample test area using trained model from NTB-TB data**
 
