@@ -1,5 +1,5 @@
 # Soil Properties Estimation
-## **NTB-TB data points **
+## **NTB-TB data points**
 ![image](figures/ntb-tb.png)
 ## **Sample test area using trained model from NTB-TB data**
 
@@ -49,7 +49,7 @@ Soil type number. From down to bottom.
                 
 ## **Predicted results - 3D point grid**
 
-![image](figures/estimated_merged_ntb_tb.png)
+![image](figures/ntb-tb.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
