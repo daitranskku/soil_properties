@@ -1,30 +1,16 @@
-# Soil Properties Estimation
+# **Soil Properties Estimation Using Deep Regression Neural Network**
 ## **NTB-TB data points**
 ![image](figures/ntb-tb.png)
 ## **Sample test area using trained model from NTB-TB data**
 
-### P1-P2-P5-P6 all region 
-
-![image](figures/test_area.png)
+![image](figures/test_area_official.png)
 
 
-`X_TEST_START = 549648`
+`X_STEP = 3`
 
-`X_TEST_STOP = 550977`
+`Y_STEP = 3`
 
-`X_STEP = 10`
-
-`Y_TEST_START = 213758`
-
-`Y_TEST_STOP = 213833`
-
-`Y_STEP = 10`
-
-`ELEVATION_START = 80`
-
-`ELEVATION_STOP = 130`
-
-`ELEVATION_STEP = 5`
+`ELEVATION_STEP = 2`
 
 ### **Soil type assumption**
 
@@ -45,11 +31,13 @@ Soil type number. From down to bottom.
  
 `label_colours = ['black', 'brown', 'red', 'magenta',`
                 `'pink', 'green',`
-                `'blue','cyan','silver']`
+                `'blue','cyan']`
                 
 ## **Predicted results - 3D point grid**
 
 ![image](figures/3d_ntb_tb.png)
+
+![image](figures/3d_points_grid_train_on_merged_NTB_TB.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
@@ -62,8 +50,8 @@ Soil type number. From down to bottom.
 
 # Tutorial
 - Step 1: Using [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) to training model base on NTB or TB or both.
-- Step 2: Using [Step2_generating_estimated_results.ipynb](Step2_generating_estimated_results.ipynb) to generate test area predicted results
-- Step 3: Using [Step3_visualize_3D_points_and_cross_sections.ipynb](Step3_visualize_3D_points_and_cross_sections.ipynb) for visualizing cross section interpolation images.
+- Step 2: Using [Step2_generating_estimated_results_visualize_3_soil_types.ipynb](Step2_generating_estimated_results_visualize_3_soil_types.ipynb) to generate test area predicted results
+- Step 3: Using [Step3_visualize_3D_points_and_cross_sections_visualize_3_soil_types.ipynb](Step3_visualize_3D_points_and_cross_sections_visualize_3_soil_types.ipynb) for visualizing cross section interpolation images.
 
 # Notes
 - Check **model architecture** in [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) before making prediction.
