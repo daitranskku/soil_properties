@@ -49,7 +49,7 @@ Soil type number. From down to bottom.
                 
 ## **Predicted results - 3D point grid**
 
-![image](figures/ntb-tb.png)
+![image](figures/3d_ntb_tb.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
