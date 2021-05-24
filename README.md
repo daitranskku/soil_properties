@@ -29,29 +29,28 @@ Soil type number. From down to bottom.
                  
  ### **Type color assumption**
  
-`label_colours = ['black', 'brown', 'red', 'magenta',`
-                `'pink', 'green',`
-                `'blue','cyan']`
+`label_colours = ['navy', 'mediumvioletred', 'olivedrab', 'gold',`
+                `'darkorange', 'deepskyblue', 'moccasin','moccasin']`
                 
 ## **Predicted results - 3D point grid**
 
-![image](figures/3d_ntb_tb.png)
+<!-- ![image](figures/3d_ntb_tb.png) -->
 
-![image](figures/3d_points_grid_train_on_merged_NTB_TB.png)
+![image](figures/3d_points_grid_train_on_NTB_TB.png)
 
 **With these 3D Data points, we can extract the specific cross section. Sample as follow**
 
 ### **X-X Cross Section**
-![image](figures/cross_section_X_ntb_tb.png)
+![image](figures/cross_sectional_width_551058_train_onNTBTB_2D.png)
 
 ### **Y-Y Cross Section**
-![image](figures/cross_section_Y_ntb_tb.png)
+![image](figures/cross_sectional_long_train_onNTBTB_2D.png)
 
 
 # Tutorial
 - Step 1: Using [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) to training model base on NTB or TB or both.
-- Step 2: Using [Step2_generating_estimated_results_visualize_3_soil_types.ipynb](Step2_generating_estimated_results_visualize_3_soil_types.ipynb) to generate test area predicted results
-- Step 3: Using [Step3_visualize_3D_points_and_cross_sections_visualize_3_soil_types.ipynb](Step3_visualize_3D_points_and_cross_sections_visualize_3_soil_types.ipynb) for visualizing cross section interpolation images.
+- Step 2: Using [[Finalize]_Step2_generating_estimated_results_visualize_3_soil.ipynb]([Finalize]_Step2_generating_estimated_results_visualize_3_soil.ipynb) to generate test area predicted results
+- Step 3: Using [[Finalize]_Step3_visualize_3D_points_and_cross_sections.ipynb]([Finalize]_Step3_visualize_3D_points_and_cross_sections.ipynb) for visualizing cross section interpolation images.
 
 # Notes
 - Check **model architecture** in [Step1_develop_regression_models.ipynb](Step1_develop_regression_models.ipynb) before making prediction.
